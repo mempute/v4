@@ -23,3 +23,17 @@ chatbot
       
     test
       python korqbot.py --case 6 --m_name korqbot --d_name korq_set  #추론 테스트
+
+
+anormal dection ( 이상탐지 )
+
+링크에서 data 다운받아 anormaldata 폴더에 압축해제후 실행 https://github.com/curiousily/Credit-Card-Fraud-Detection-using-Autoencoders-in-Keras
+
+  training
+  
+    python hanormal.py 1 0 0 anormal 1 1 #초기화
+    python hanormal.py 5 0 0 anormal 0 50 #50번 에포크 수행
+
+  test
+  
+    python hanormal.py 6 0 0 anormal 0 
