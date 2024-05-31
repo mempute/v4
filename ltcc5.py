@@ -530,7 +530,7 @@ class LTCUnit:#isz -  bos/eos 한개가 포함된 사이즈, latent_sz - 0보다
             self.logf("[Translated_f] %s\n", pred_sent_f)
             self.logf("[Translated_r] %s\n", pred_sent_r)
 
-    def accuracy(self, itr):
+    dedef accuracy(self, itr):
 
         query = []
         preds_front = []
@@ -545,14 +545,15 @@ class LTCUnit:#isz -  bos/eos 한개가 포함된 사이즈, latent_sz - 0보다
 
         nequal = 0
         nright = 0
-        for i, (ids, n) in enumerate(zip(toks, qlen)):
-            n = n // 2
+        for i, (ids, n2) in enumerate(zip(toks, qlen)):
+            n = n2 // 2
             z = np.zeros((ids.shape[0] - n, 1), dtype = ids.dtype)
             q = np.concatenate((ids[:n], z), axis=0) #bos + query[1/2] + zero padding endian [seq, 1]
             q = np.expand_dims(q, axis=0) #batch dim 0 [1, seq, 1]
             pred = mp.xpredict(self.net, q, 1, n) #[1, seq]api에서 q의 공간에 직접 쓰고 q를 리턴하므로 q와 pred는 등일 하다. 
             ids = np.squeeze(ids)#[seq]
             pred = np.squeeze(pred)#[seq]
+            pad_len = (len(ids) - n2) * -1
             r_front = ids[:n]
             r_rear = ids[n:]
             p_front = pred[:n]
@@ -561,9 +562,10 @@ class LTCUnit:#isz -  bos/eos 한개가 포함된 사이즈, latent_sz - 0보다
             rights_rear.append(r_rear)
             preds_front.append(p_front)
             preds_rear.append(p_rear)
-            nequal += np.sum(np.equal(p_rear, r_rear))#go + query cut
-            #print(nequal)
-            nright += (ids.shape[0] - n)#go + query cut
+            #nequal += np.sum(np.equal(p_rear[:], r_rear))#go + query cut
+            #nright += (ids.shape[0] - n)#go + query cut
+            nequal += np.sum(np.equal(p_rear[:pad_len], r_rear[:pad_len]))#go + query + pad cut
+            nright += (n2 - n) #go + query + pad cut, only answer
         #rights = np.array(rights)
         #preds = np.array(preds)
         #query = np.array(query)
