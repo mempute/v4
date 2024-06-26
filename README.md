@@ -12,7 +12,7 @@ python 3.9.13
 numpy 1.26.4  
 mpi4py  
  
-morphic.py 프로그램의 os.add_dll_directory("E:\\kkk\c\libtorch\lib")에서 라이브러리 위치를 위 압축 해제 폴더 위치로 변경한다.  
+morphic.py 프로그램의 os.add_dll_directory("E:\\down\libtorch\lib")에서 라이브러리 위치를 위 압축 해제 폴더 위치로 변경한다.  
 
 -----------------------------
 
