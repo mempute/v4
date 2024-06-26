@@ -1,5 +1,14 @@
 
-윈도우에서 아나콘다 conda 22.9.0 설치후 수행
+Requirement
+----------------------------
+windows os
+cuda 11.8
+anaconda 24.5.0
+python 3.9.13
+numpy 1.26.4
+mpi4py
+
+-----------------------------
 
 sign curve 
   training
