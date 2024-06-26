@@ -182,6 +182,7 @@ if __name__ == '__main__':
     parser.add_argument('--wgt_save',      default=0,     type=int,   help='the number of workers')
     parser.add_argument('--layer_norm',      default=1,     type=int,   help='the number of workers')
     parser.add_argument('--n_epair',      default=1,     type=int,   help='the number of workers')
+    parser.add_argument('--nstream',      default=4,     type=int,   help='the number of workers')
     parser.add_argument('--residual',      default=1,     type=int,   help='the number of workers')
     parser.add_argument('--on_schedule',      default=0,     type=int,   help='the number of workers')
     parser.add_argument('--seed',      default=777,     type=int,   help='the number of workers')
@@ -189,7 +190,7 @@ if __name__ == '__main__':
     parser.add_argument('--regression',      default=1,     type=int,   help='the number of workers')
     parser.add_argument('--fast_once',      default=1,     type=int,   help='the number of workers')
     parser.add_argument('--dec_lev_learn',      default=1,     type=int,   help='the number of workers')
-    parser.add_argument('--gpt_model',      default=0,     type=int,   help='the number of workers')
+    parser.add_argument('--gpt_model',      default=1,     type=int,   help='the number of workers')
     parser.add_argument('--pos_encoding',      default=1,     type=int,   help='the number of workers')
 
     # Train parameters
@@ -205,7 +206,7 @@ if __name__ == '__main__':
     # Model parameters
     parser.add_argument('--latent_sz',         default=768,  type=int,   help='the number of expected features in the transformer decoder')
     parser.add_argument('--n_layers',       default=2,   type=int,   help='the number of decoder layers')
-    #parser.add_argument('--n_layers',       default=6,   type=int,   help='the number of decoder layers')#gpt
+    parser.add_argument('--ngpt_layers',       default=12,   type=int,   help='the number of decoder layers')
     #deatten이면 gpt가 아니라도 유효값으로 설정되야함(디멘젼의 2승수)
     parser.add_argument('--n_attn_heads',   default=12,   type=int,   help='the number of multi-head attention heads')
     parser.add_argument('--drop_rate',   default=0.1,  type=float, help='embedding dropout value')

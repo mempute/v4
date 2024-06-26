@@ -1,5 +1,9 @@
 ﻿
+import os
+os.add_dll_directory("E:\\kkk\c\libtorch\lib")
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 import numpy as np
+"""
 import mempute as mp
 
 def get_handle(win_exec, port=None):
@@ -164,8 +168,8 @@ def default_param(**train_params):
         train_params['n_epair'] = 3
     if 'drop_rate' not in train_params:
         train_params['drop_rate'] = 0.0001
-    if 'residual' not in train_params:
-        train_params['residual'] = 1
+    if 'nstream' not in train_params:
+        train_params['nstream'] = 0
     if 'on_schedule' not in train_params:
         train_params['on_schedule'] = False
     if 'tune_learning' not in train_params:

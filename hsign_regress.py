@@ -1,17 +1,17 @@
 
 
-import mempute as mp
-
+from morphic import *
+from mpi4py import MPI
 
 import numpy as np
+import mempute as mp
+
 import  sys
 from operator import eq
 import matplotlib.pyplot as plt
 import time
 import math
 import datetime
-
-from morphic import *
 
 from tools import create_sin, make_timeseries, split_train_test#, visualize_random_data
 from tools import batch_loader, shuffle

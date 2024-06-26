@@ -1,7 +1,7 @@
-
+from morphic import *
+from mpi4py import MPI
 import numpy as np
 import mempute as mp
-from morphic import *
 import time
 import  sys
 import random
@@ -304,15 +304,15 @@ latt = 8
 #import re
 def make_mname(args):
     args.m_name = f"{args.m_name}_isz_{args.isz}_hsz_{args.latent_sz}\
-                _gpt_{args.gpt_model}_deatt_{deatt}\
-                _nblock_{args.n_layers}_npair_{args.n_epair}\
+                gpt_{args.gpt_model}_deatt_{deatt}\
+                _nblock_{args.n_layers}_ngpt_{args.ngpt_layers}_npair_{args.n_epair}\
                 _natt_{natt}_latt_{latt}\
                 _qak_{qa_kernel}_ifk_{infini_kernel}\
                 _gram_{glam}_mixture_{mixture}\
                 _nhead_{args.n_attn_heads}_dff_{args.ffn_hidden}\
                 _mse_{args.signid_mse}_vocab_{args.vocab}\
                 _posenc_{args.pos_encoding}\
-                _resi_{args.residual}_bresi_{b_resi}\
+                _nstr_{args.nstream}_bresi_{b_resi}\
                 _spk_lr_{spk_lr}"
     args.m_name = args.m_name.replace(' ', '')
     print(args.m_name)
@@ -390,7 +390,7 @@ class LTCUnit:#isz -  bos/eos 한개가 포함된 사이즈, latent_sz - 0보다
                 wgt_save = args.wgt_save,
                 layer_norm = args.layer_norm,
                 n_epair = args.n_epair, #encode depth 개수, 1부터 시작
-                residual = args.residual,
+                nstream = args.nstream,
                 on_schedule = args.on_schedule,
                 dtype = mp.tfloat,
                 levelhold = args.levelhold,
@@ -450,7 +450,7 @@ class LTCUnit:#isz -  bos/eos 한개가 포함된 사이즈, latent_sz - 0보다
             train_params['aab0'] = natt 
             train_params['aab1'] = latt 
             #train_params['aab3'] = 1 # tff linear
-            #train_params['aab5'] = 1
+            train_params['aab5'] = args.ngpt_layers
             
             #train_params['aaaaa12'] = 3 #incre_lev
             #train_params['aaaaa13'] = 2

@@ -1,10 +1,15 @@
 
-import pandas as pd
+
+from morphic import *
+from mpi4py import MPI
+
 import numpy as np
+import mempute as mp
+
+import pandas as pd
 import pickle
 import matplotlib.pyplot as plt
 from scipy import stats
-import mempute as mp
 import seaborn as sns
 from pylab import rcParams
 from sklearn.model_selection import train_test_split
@@ -13,8 +18,6 @@ import  sys
 import time
 import json
 import os
-
-from morphic import *
 
 bos = 6
 pos = 5
