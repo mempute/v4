@@ -1,12 +1,18 @@
 
 Requirement
 ----------------------------
-windows os 
-cuda 11.8 
-anaconda 24.5.0 
-python 3.9.13 
-numpy 1.26.4 
-mpi4py 
+windows os  
+cuda 11.8  
+libtorch 2.1.1  
+>https://download.pytorch.org/libtorch/cu118/libtorch-win-shared-with-deps-2.1.1%2Bcu118.zip  
+>링크 다운로드 후 설치할 위치에 압축 해제
+
+anaconda 24.5.0  
+python 3.9.13  
+numpy 1.26.4  
+mpi4py  
+ 
+morphic.py 프로그램의 os.add_dll_directory("E:\\kkk\c\libtorch\lib")에서 라이브러리 위치를 위 압축 해제 폴더 위치로 변경한다.  
 
 -----------------------------
 
