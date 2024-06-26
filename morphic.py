@@ -1,6 +1,6 @@
 ﻿
 import os
-os.add_dll_directory("E:\\kkk\c\libtorch\lib")
+os.add_dll_directory("E:\\down\libtorch\lib")
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 import numpy as np
 """
