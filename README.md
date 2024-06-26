@@ -1,12 +1,12 @@
 
 Requirement
 ----------------------------
-windows os
-cuda 11.8
-anaconda 24.5.0
-python 3.9.13
-numpy 1.26.4
-mpi4py
+windows os 
+cuda 11.8 
+anaconda 24.5.0 
+python 3.9.13 
+numpy 1.26.4 
+mpi4py 
 
 -----------------------------
 
