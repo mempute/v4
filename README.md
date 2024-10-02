@@ -1,3 +1,6 @@
+# fluxx
+AI framework, c++ &amp;  python 1: 1 matching, powerfull time series neural net, chatbot including
+
 Time series models that include: Spiking model using som(self-organizing map), quauntum attention model, Bayesian inference network using rdbms
 Requirement
 ----------------------------
