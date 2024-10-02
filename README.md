@@ -1,4 +1,4 @@
-
+Time series models that include: Spiking model using som(self-organizing map), quauntum attention model, Bayesian inference network using rdbms
 Requirement
 ----------------------------
 windows os  
